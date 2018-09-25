@@ -80,6 +80,45 @@ public class Colosseum {
         Pokemon tempPokemon = new Pokemon(hp, atk, def, name);
         return tempPokemon;
     }
+    /**
+     * How we will build our Pokemon to battle.
+     * <p>
+     * Obtain user input to set Pokemon's member variables
+     * <p>
+     * Requirements we should check the user for: <br>
+     * - Hit points are between 1 and MAX_HIT_POINTS <br>
+     * - No more than 50 points are split between attack level and defense leve <br>
+     * - Attack level and defense level must have at least 1 point each <br>
+     * Example of how this will look to the user:
+     * <p>
+     * Please name your Pokemon: Dolphin <br>
+     * How many hit points will it have? (1-50): 50 <br>
+     * Split fifty points between attack level and defense level <br>
+     * Enter your attack level (1-49): 47 <br>
+     * Enter your defense level (1-3): 3 <br>
+     * <br>
+     * Example of checking for bad input: <br>
+     * <br>
+     * Please name your Pokemon: Fire <br>
+     * How many hit points will it have? (1-50): 0 <br>
+     * Sorry. Hit points must be between 1 and 50: 55 <br>
+     * Sorry. Hit points must be between 1 and 50: 50 <br>
+     * Split fifty points between attack level and defense level <br>
+     * Enter your attack level (1-49): -10 <br>
+     * Sorry. The attack level must be between 1 and 49: 73 <br>
+     * Sorry. The attack level must be between 1 and 49: 27 <br>
+     * Enter your defense level (1-23): 24 <br>
+     * Sorry. The defense level must be between 1 and 23: 23
+     *
+     * @return tempPokemon - the Pokemon we built and are going to set our fighting Pokemon to <br>
+     *         (Look, we can return objects too!)
+     *         <p>
+     *         Implement this function.
+     *
+     */
+    public static Pokemon buildPokemon() {
+        return new Pokemon();
+    }
 
     /**
      * Prints who is ahead.
@@ -112,7 +151,7 @@ public class Colosseum {
      * Write this function.
      */
     public static void determineWinner() {
-        System.out.println("Implement me!");
+        //System.out.println("Implement me!");
     }
 
     /**
@@ -121,17 +160,26 @@ public class Colosseum {
      * You do not need to modify this function.
      */
     public static void initializePokemon() {
+        int tempHP, tempATK, tempDEF;
+        String tempName;
+
         System.out.println("Player 1, build your Pokemon!");
         System.out.println("=================");
-        firstPokemon = buildPokemon();
-        firstPokemon.name = "Chuchu";
+        tempHP = myScan.nextInt();
+        tempATK = myScan.nextInt();
+        tempDEF = myScan.nextInt();
+        tempName = myScan.next();
+        firstPokemon = buildPokemon(tempHP, tempATK, tempDEF, tempName);
 
         System.out.println("");
 
         System.out.println("Player 2, build your Pokemon!");
         System.out.println("==================");
-        secondPokemon = buildPokemon();
-        secondPokemon.name = "Xyz";
+        tempHP = myScan.nextInt();
+        tempATK = myScan.nextInt();
+        tempDEF = myScan.nextInt();
+        tempName = myScan.next();
+        secondPokemon = buildPokemon(tempHP, tempATK, tempDEF, tempName);
     }
 
     /**
