@@ -70,9 +70,14 @@ public class Colosseum {
      *         (Look, we can return objects too!)
      *         <p>
      *         Implement this function.
+     *
+     * @param hp hp
+     * @param atk attack
+     * @param def defense
+     * @param name name
      */
-    public static Pokemon buildPokemon() {
-        Pokemon tempPokemon = new Pokemon();
+    public static Pokemon buildPokemon(final int hp, final int atk, final int def, final String name) {
+        Pokemon tempPokemon = new Pokemon(hp, atk, def, name);
         return tempPokemon;
     }
 
@@ -90,7 +95,13 @@ public class Colosseum {
      * Implement this function.
      */
     public static void printWhoIsAhead() {
-        System.out.println("Implement me!");
+        if (firstPokemon.hitPoints == secondPokemon.hitPoints) {
+            System.out.println("The Pokemon are tied!");
+        } else if (firstPokemon.hitPoints < secondPokemon.hitPoints) {
+            System.out.println(secondPokemon.name + " is winning!");
+        } else {
+            System.out.println(firstPokemon.name + " is winning!");
+        }
     }
 
     /**
